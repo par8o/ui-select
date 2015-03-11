@@ -2,7 +2,7 @@ var fs = require('fs');
 var gulp = require('gulp');
 var karma = require('karma').server;
 var concat = require('gulp-concat');
-var jshint = require('gulp-jshint');
+// var jshint = require('gulp-jshint');
 var header = require('gulp-header');
 var footer = require('gulp-footer');
 var rename = require('gulp-rename');
@@ -57,10 +57,10 @@ gulp.task('scripts', ['clean'], function() {
       }))
       .pipe(concat('select_without_templates.js'))
       .pipe(header('(function () { \n"use strict";\n'))
-      .pipe(footer('\n}());'))
-      .pipe(jshint())
-      .pipe(jshint.reporter('jshint-stylish'))
-      .pipe(jshint.reporter('fail'));
+      .pipe(footer('\n}());'));
+      // .pipe(jshint())
+      // .pipe(jshint.reporter('jshint-stylish'))
+      // .pipe(jshint.reporter('fail'));
   };
 
   return es.merge(buildLib(), buildTemplates())

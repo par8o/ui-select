@@ -111,7 +111,9 @@ uis.controller('uiSelectCtrl',
 
     var setItemsFn = groupByExp ? updateGroups : setPlainItems;
 
-    ctrl.parserResult = RepeatParser.parse(repeatAttr);
+    if (angular.isUndefined(ctrl.parserResult)) {
+      ctrl.parserResult = RepeatParser.parse(repeatAttr);
+    }
 
     ctrl.isGrouped = !!groupByExp;
     ctrl.itemProperty = ctrl.parserResult.itemName;
